@@ -6,8 +6,8 @@
         <input type="text" nz-input formControlName="username" placeholder="Nom d'utilisateur" />
       </nz-input-group>
       <ng-template #combineTpl let-control>
-        <ng-container *ngIf="control.hasError('maxlength')">La taille maximume est 12! </ng-container>
-        <ng-container *ngIf="control.hasError('minlength')">La taille minimume est 3! </ng-container>
+        <ng-container *ngIf="control.hasError('maxlength')">La taille maximum est 12! </ng-container>
+        <ng-container *ngIf="control.hasError('minlength')">La taille minimum est 3! </ng-container>
         <ng-container *ngIf="control.hasError('required')">Veuillez saisir votre nom! </ng-container>
       </ng-template>
     </nz-form-control>
@@ -18,7 +18,7 @@
         <input type="password" nz-input formControlName="password" placeholder="Mot de passe" />
       </nz-input-group>
       <ng-template #pass let-control>
-        <ng-container *ngIf="control.hasError('pattern')">Le mot de passe doit combiné par les chiffres et charactres!</ng-container>
+        <ng-container *ngIf="control.hasError('pattern')">Le mot de passe doit combiner par les chiffres et charactères!</ng-container>
         <ng-container *ngIf="control.hasError('required')">Veuillez saisir votre nom!</ng-container>
       </ng-template>
     </nz-form-control>
@@ -32,7 +32,7 @@
 </form>
 </div>
 <nz-modal [(nzVisible)]="isVisible"
-          nzTitle="Register" (nzOnCancel)="CancelRegister()"
+          nzTitle="Inscription" (nzOnCancel)="CancelRegister()"
           (nzOnOk)="register()"
           nzOkText="Confirmer"
           nzCancelText="Annuler">
@@ -80,7 +80,7 @@
           <ng-template #errorTpl let-control>
             <ng-container *ngIf="control.hasError('required')">Veuillez comfirmer votre mot de passe!</ng-container>
             <ng-container *ngIf="control.hasError('confirm')">
-              Two passwords that you enter is inconsistent!
+              Vérifier votre mot de passe!
             </ng-container>
           </ng-template>
         </nz-form-control>

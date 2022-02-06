@@ -32,7 +32,7 @@ export class UserComponent implements OnInit {
   listOfUser: User[];
 
   curPage = 1;
-  pageSize = 5;
+  pageSize = 7;
   //total: number;
 
   showFlag !: boolean;

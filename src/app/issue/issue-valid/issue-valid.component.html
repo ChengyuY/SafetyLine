@@ -1,4 +1,4 @@
-<!--<div [hidden]="!showFlag">
+<div [hidden]="!showFlag">
   <nz-table #listIssue [nzData]="listOfIssue" [nzFrontPagination]="true"
             [nzPageSize]="pageSize" [nzPageIndex]="curPage" [nzLoading]="false">
     <thead>
@@ -33,10 +33,10 @@
     </ng-container>
   </nz-modal>
 </div>
--->
 
 
-  <nz-table #listIssue [nzData]="listOfIssue" [nzFrontPagination]="true"
+<div [hidden]="showFlag">
+  <nz-table #listIssues [nzData]="listOfIssue" [nzFrontPagination]="true"
             [nzPageSize]="pageSize" [nzPageIndex]="curPage" [nzLoading]="false">
     <thead>
     <tr>
@@ -50,7 +50,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let issue of listIssue.data; let i = index; trackBy: trackByUserId">
+    <tr *ngFor="let issue of listIssues.data; let i = index; trackBy: trackByUserId">
       <td>{{ issue.id }}</td>
       <td>{{ issue.title }}</td>
       <td>{{ issue.humanTimeEstimate }}</td>
@@ -79,9 +79,11 @@
             nzOkText="Confrimer"
             nzCancelText="Annuler">
     <ng-container *nzModalContent>
+      <p>Merci de respecter la règle du gitlab.</p>
+      <p>Exemple: 1w1d2h (1 week 1 day 2 hour)</p>
       <label>
         <input nz-input placeholder="1d3h" [(ngModel)]="chiffrement" nzHasFeedback/>
       </label>
     </ng-container>
   </nz-modal>
-
+</div>

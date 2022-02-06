@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { IssueService } from "../issue.service";
-import { Issue } from '../issue.type';
-import { HttpResponse } from "@angular/common/http";
-import { NzMessageService } from "ng-zorro-antd/message";
-import { NgModel } from "@angular/forms";
+import {Component, OnInit} from '@angular/core';
+import {IssueService} from "../issue.service";
+import {Issue} from '../issue.type';
+import {HttpResponse} from "@angular/common/http";
+import {NzMessageService} from "ng-zorro-antd/message";
 
 @Component({
   selector: 'app-issue-list',
@@ -18,7 +17,7 @@ export class IssueListComponent implements OnInit {
   // @ts-ignore
   listOfIssue: Issue[];
   curPage = 1;
-  pageSize = 5;
+  pageSize = 7;
   chiffrement ?: string;
   id ?: number;
   fetchIssue(){
@@ -56,11 +55,17 @@ export class IssueListComponent implements OnInit {
       if (this.id != null) {
         this.issueService.editTime(this.id, this.chiffrement).subscribe(res => {
           //console.log(res)
+          if (!res){
+            this.nzmsgService.info('L\'entrée ne respecte pas le format du chiffrage', {nzDuration:1000});
+          }else{
+            this.isVisible = false;
+            location.reload();
+          }
         })
       }
+    }else{
+      this.nzmsgService.info('L\'entrée ne peut pas être vide', {nzDuration:1000});
     }
-    this.isVisible = false;
-    location.reload();
   }
 
   handleCancel(): void {

@@ -20,7 +20,7 @@ export class UserListComponent implements OnInit {
   listOfUser: User[];
 
   curPage = 1;
-  pageSize = 5;
+  pageSize = 8;
   //total: number;
 
   handleDel(id: number){

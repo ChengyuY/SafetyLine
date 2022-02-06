@@ -25,7 +25,7 @@
 </nz-table>
 
 <nz-modal [(nzVisible)]="isVisible" nzTitle="Chiffrage" (nzOnCancel)="handleModifierCancel()" (nzOnOk)="handleModifierOk()" nzOkText="Confrim"
-          nzCancelText="Exit">
+          nzCancelText="Exit" nzWidth = 720px>
   <ng-container *nzModalContent>
     <nz-table #listIssue [nzData]="listOfIssue" [nzFrontPagination]="true"
               [nzPageSize]="pageSize" [nzPageIndex]="curPage" [nzLoading]="false">
@@ -51,7 +51,7 @@
   </ng-container>
 </nz-modal>
 
-<nz-table #listIssue [nzData]="listOfIssue" [nzFrontPagination]="true"
+<nz-table #listIssues [nzData]="listOfIssue" [nzFrontPagination]="true"
           [nzPageSize]="pageSize" [nzPageIndex]="curPage"
           [nzLoading]="false" [hidden]="!showFlag">
   <thead>
@@ -64,7 +64,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let issue of listIssue.data; let i = index">
+  <tr *ngFor="let issue of listIssues.data; let i = index">
     <td>{{ issue.id }}</td>
     <td>{{ issue.title }}</td>
     <td>{{ issue.humanTimeEstimate }}</td>

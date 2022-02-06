@@ -3,7 +3,7 @@
     <div class="logo">
       <img alt="logo" src="assets/safetyline.png">
     </div>
-    <ul nz-menu nzMode="inline" nzTheme="light" [nzInlineCollapsed]="isCollapsed">
+    <ul nz-menu nzMode="inline" nzTheme="light" [nzInlineCollapsed]="isCollapsed" >
       <li nz-submenu nzTitle="Issues" nzIcon="gitlab">
         <ul>
           <li nz-menu-item routerLink="/home/issue">Liste</li>
@@ -19,10 +19,10 @@
       </div>
       <li nz-submenu nzTitle="Chiffrage" nzIcon="setting">
         <ul>
-          <li nz-menu-item routerLink="/home/issue/valid">Liste</li>
+          <li nz-menu-item routerLink="/home/issue/valid">Chiffrages globaux</li>
         </ul>
         <ul>
-          <li nz-menu-item routerLink="/home/issue/user">Voir les issues</li>
+          <li nz-menu-item routerLink="/home/issue/user">Chiffrages par Utilisateur</li>
         </ul>
       </li>
     </ul>
@@ -52,8 +52,8 @@
           <nz-avatar nzIcon="user" style="background-color:#ffffff;"></nz-avatar>
           <a
             nz-popconfirm
-            nzPopconfirmTitle="Vous êtes sûr de logout?"
-            nzOkText="Valider"
+            nzPopconfirmTitle="Vous êtes sûr de vous déconnecter?"
+            nzOkText="Confirmer-"
             nzCancelText="Annuler"
             (nzOnConfirm)="logout()"
             href="#" > &nbsp;

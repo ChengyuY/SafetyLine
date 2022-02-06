@@ -16,7 +16,7 @@ export class IssueValidComponent implements OnInit {
   // @ts-ignore
   listOfIssue: Issue[];
   curPage = 1;
-  pageSize = 5;
+  pageSize = 7;
   chiffrement ?: string;
   id ?: number;
   fetchIssue(){
@@ -64,16 +64,17 @@ export class IssueValidComponent implements OnInit {
   handleModifierOk(): void {
     if (this.chiffrement != null) {
       if (this.id != null) {
-        this.issueService.editTimeAdmin(this.id, this.chiffrement).subscribe(res => {
-          //console.log(this.id,this.chiffrement)
+        this.issueService.editTime(this.id, this.chiffrement).subscribe(res => {
+          //console.log(res)
+          if (!res){
+            this.nzmsgService.info('L\'entrée ne respecte pas le format du chiffrage', {nzDuration:1000});
+          }else{
+            this.isVisible = false;
+            location.reload();
+          }
         })
-        this.fetchIssue()
-        this.isVisible = false;
-        this.nzmsgService.info('Valider la modification', {nzDuration:1000});
-        location.reload();
       }
     }else{
-      this.isVisible = false;
       this.nzmsgService.info('L\'entrée ne peut pas être vide', {nzDuration:1000});
     }
   }
