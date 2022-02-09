@@ -33,7 +33,7 @@
         <nz-avatar
           [nzText] = "username"
           nzSize="large"
-          style="vertical-align: bottom;"></nz-avatar>
+          style="vertical-align: center;horiz-align: center;"></nz-avatar>
         <!--
         <div nz-col nzSpan="2">
           <nz-avatar nzIcon="user" style="background-color:#fcfcfc;"></nz-avatar>
@@ -48,12 +48,12 @@
           </a>
         </div>
         -->
-        <div nz-col nzSpan="4">
+        <div nz-col nzSpan="5">
           <nz-avatar nzIcon="user" style="background-color:#ffffff;"></nz-avatar>
           <a
             nz-popconfirm
             nzPopconfirmTitle="Vous êtes sûr de vous déconnecter?"
-            nzOkText="Confirmer-"
+            nzOkText="Confirmer"
             nzCancelText="Annuler"
             (nzOnConfirm)="logout()"
             href="#" > &nbsp;

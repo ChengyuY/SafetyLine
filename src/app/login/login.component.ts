@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
     }
 
     if (!loginForm.valid){
-      console.log('Login failed!');
+      //console.log('Login failed!');
       return;
     }
     //console.log('Login success!',this.loginForm.value);
@@ -57,12 +57,14 @@ export class LoginComponent implements OnInit {
       username,
       password
     }
-    console.log(localStorage.getItem('user-token'))
+    //console.log(localStorage.getItem('user-token'))
     if (!!localStorage.getItem('user-token')){
       this.router.navigate(['/home'])
       this.nzmsgService.info('Vous avez login!',{ nzDuration: 1000});
     }else {
+      //console.log("Login form",loginParameters)
       this.loginService.login(loginParameters).subscribe((res: any) => {
+        //console.log("User info:",res)
           if (res) {
             localStorage.setItem('user-token', res);
             localStorage.setItem('username-token', res.username);

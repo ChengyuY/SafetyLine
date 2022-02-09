@@ -14,7 +14,7 @@ export class AuthInterceptor implements HttpInterceptor{
       return next.handle(req);
     }
     // if not login, add auth in headers
-    //console.log('HttpInterceptor!');
+    console.log('HttpInterceptor!');
     const token = localStorage.getItem('user-token');
     const authReq = req.clone(
       {
